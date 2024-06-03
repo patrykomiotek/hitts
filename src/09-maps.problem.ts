@@ -1,6 +1,6 @@
 type Keys = number | string;
 
-const myMap = new Map<Keys, string>();
+const myMap = new Map<Keys, string>(); // {}: Record + methods add, get, has, set
 
 myMap.set(123, "hello");
 myMap.set("sth", "hello2");
@@ -9,7 +9,7 @@ myMap.set("sth", "hello2");
 type MyCache = Record<Keys, string>;
 
 const superCache = () => {
-  const cache: MyCache = {};
+  const cache: MyCache = {}; // server -> API -> frontend -> display
 
   const add = (id: string, value: string) => {
     // add something to cache

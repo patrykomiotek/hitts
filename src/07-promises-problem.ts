@@ -52,3 +52,5 @@ export const fetchLukeSkywalker = async () => {
     throw new Error("fail");
   }
 };
+
+type Person = Awaited<ReturnType<typeof fetchLukeSkywalker>>;
