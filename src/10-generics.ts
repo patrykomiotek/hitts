@@ -3,7 +3,10 @@ import { type User } from "./04-create-type.problem";
 // discriminated union
 // client -> request -> server -> response
 
-type UserResponse =
+type Category = { id: string };
+type Product = { id: string; name: string };
+
+type APIResponse<T extends User[]> =
   | {
       // pending
       data: undefined;
@@ -12,7 +15,7 @@ type UserResponse =
     }
   | {
       // fulfilled
-      data: User[];
+      data: T;
       isLoading: false;
       isError: false;
     }
@@ -24,7 +27,7 @@ type UserResponse =
     };
 
 // fetch -> response data as User
-let userResponse: UserResponse = {
+let userResponse: APIResponse<User[]> = {
   data: undefined,
   isLoading: true,
   isError: false,
